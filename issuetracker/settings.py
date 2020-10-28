@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # 'django-forms-bootstrap',
     'accounts',
-    'home',
+    'tickets',
 ]
 
 MIDDLEWARE = [
