@@ -16,6 +16,7 @@
             {% if user.is_authenticated %}
                 <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
+                <li><a href="{% url 'new_ticket' %}">New Ticket</a></li>
             {% else %}
                 <li><a href="{% url 'login' %}">Login</a></li>
                 <li><a href="{% url 'registration' %}">Register</a></li>
@@ -32,7 +33,22 @@
         {% endfor %}
     </div>
     {% endif %} 
-    {% block content %}{% endblock %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel">
+                    <!--ticket entries-->
+                    {% block content %}{% endblock %}
+                    <!--ticket entries-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>Designed by Darren Messenger</p>
+        </div>
+    </footer>
 </body>
 
 </html>

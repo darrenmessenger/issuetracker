@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% for ticket in tickets %}
+        <div class="row">
+            <div class="col-md-2 col-sm-3 text-center">
+                <a class="story-img" href="#">
+                    <img src="/media/img/profile.jpg" class="img-circle">
+                </a>
+                <p><span class="boldtext">Author:</span> Darren Messenger</p>
+            </div>
+            <div class="col-md-10 col-sm-9">
+                <h3>{{ ticket.title }}</h3>
+                <div class="row">
+                    <div class="col-xs-9">
+                        <p>{{ ticket.content|truncatewords:50 }}</p>
+                        <p><a href="{% url 'ticket_detail' ticket.id %}"  class="btn btn-default">Read more</a></p>
+                        <p><span class="boldtext">Published on:</span> {{ ticket.published_date }} </p>
+                        <p><span class="boldtext">Views:</span> {{ticket.views}}</p>
+                        <p><span class="boldtext">Tag:</span> {{ ticket.tag }}</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    {% endfor %}
+{% endblock %}

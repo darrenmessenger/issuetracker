@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block content %}
+    <h1>Add Issues</h1>
+    <form method="POST" class="col-md-12" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | as_bootstrap }}
+        <button type="submit" class="btn btn-info">Create Issue</button>
+    </form>
+{% endblock %}

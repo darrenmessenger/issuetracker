@@ -1,7 +1,7 @@
 from django import forms
-from tickets.models import add_tickets
+from tickets.models import Ticket
 
-class ticketsForm(forms.ModelForm):
+class TicketsForm(forms.ModelForm):
     class Meta:
-        model = add_tickets
-        fields = ['title','content','published_date','views']
+        model = Ticket
+        fields = ['title', 'content', 'image','tag', 'published_date', 'views']
