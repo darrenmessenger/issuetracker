@@ -25,7 +25,6 @@ lazy-object-proxy==1.5.1
 mccabe==0.6.1
 netifaces==0.10.4
 oauthlib==2.0.6
-PAM==0.4.2
 parso==0.1.1
 pbr==5.5.0
 pexpect==4.8.0
