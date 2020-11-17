@@ -56,7 +56,6 @@ s3transfer==0.3.3
 SecretStorage==2.3.1
 service-identity==16.0.0
 six==1.15.0
-ssh-import-id==5.7
 stevedore==3.2.2
 systemd-python==234
 traitlets==4.3.3
