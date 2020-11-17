@@ -3,7 +3,6 @@ astroid==2.3.0
 attrs==17.4.0
 Automat==0.6.0
 awscli==1.18.149
-backcall==0.2.0
 cloud-init==20.3
 colorama==0.4.3
 command-not-found==0.3
