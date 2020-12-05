@@ -19,6 +19,8 @@ from django.views.generic import RedirectView
 from django.views.static import serve
 from accounts.views import index
 from accounts import urls as accounts_urls
+from checkout import urls as checkout_urls
+from tickets import urls as tickets_urls
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
@@ -26,6 +28,7 @@ urlpatterns = [
     url(r'^$', index, name="index"),
     url(r'^accounts/', include(accounts_urls)),
     url(r'^$', RedirectView.as_view(url='tickets/')),
-    url(r'tickets/', include('tickets.urls')),
+    url(r'checkout/', include(checkout_urls)),
+    url(r'tickets/', include(tickets_urls)),
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT }),
 ]
