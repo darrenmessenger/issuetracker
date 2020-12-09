@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load bootstrap_tags %}
+{% block content %}
+    <h1>Add Issues</h1>
+    <form method="POST" class="col-md-12" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | as_bootstrap }}
+        <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Create Issue</a>
+    </form>
+{% endblock %}
