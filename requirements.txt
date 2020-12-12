@@ -1,7 +1,6 @@
 asn1crypto==0.24.0
 astroid==1.6.6
 backports.functools-lru-cache==1.6.1
-CodeIntel==0.9.3
 configparser==4.0.2
 cryptography==2.1.4
 Django==1.11.29
