@@ -4,7 +4,6 @@ backports.functools-lru-cache==1.6.1
 configparser==4.0.2
 cryptography==2.1.4
 Django==1.11.29
-enum34==1.1.6
 futures==3.3.0
 idna==2.6
 ikpdb==1.2.3
