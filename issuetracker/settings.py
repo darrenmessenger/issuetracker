@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.environ.get('AWSC9_HOST'), '5c5da84503dd4f5b9ce4da9d527adee3.vfs.cloud9.us-east-2.amazonaws.com', 'dm-issuetracker.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('AWSC9_HOST'), '3231d88fef004534aa79ab40a77c1898.vfs.cloud9.us-east-2.amazonaws.com', 'dm-issuetracker.herokuapp.com']
 
 
 # Application definition
