@@ -1,6 +1,17 @@
-{% extends 'base.html' %} 
-{% block page_title %}Home Page{% endblock %} 
-{% block page_heading %}Home{% endblock %}
+{% extends "base.html" %}
+{% load bootstrap_tags %}
 {% block content %}
 
+<div class="jumbotron">
+    <h1 class="display-4">Issue Tracker</h1>
+    <p>Track your issues and bugs, and even request a new feature!</p>
+    <hr>
+    <p>Welcome to the Issue Tracker, a community-driven site where you can report bugs or request features.</p>
+    <p>Buy us a coffee? If you would like to make a one time donation then please click the button!</p>
+    <a href="{% url 'checkout' %}" class="btn btn-success btn-lg" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Donate</a>
+</div>
+<div>
+    <a href="{% url 'get_tickets' %}" class="btn btn-primary">All Open Issues &rsaquo;</a>
+</div>
+        
 {% endblock %}

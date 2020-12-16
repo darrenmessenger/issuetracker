@@ -4,9 +4,9 @@
 
 {% block head_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript">
+<script type="text/javascript" src="">
     //<![CDATA[
-    Stripe.publishableKey = '{{publishableKey}}';
+    Stripe.publishableKey = '{{ publishable }}';
    // ]]>
 </script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
@@ -18,16 +18,16 @@
     <legend>Payment Details</legend>
 
     <div id="credit-card-errors" style="display: none;">
-        <div id="alert-message block-message error" id="stripe-error-message"></div>
+        <div class="alert-message block-message error" id="stripe-error-message"></div>
     </div>
 
     <div class="form-group col-md-6">
-        {{ payment_form | as_bootstrap }}
+        {{ payment_form|as_bootstrap }}
     </div>
 
     {% csrf_token %}
     <div class="form-group col-md-12">
-        <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+        <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment of 5 Euros">
     </div>
 </form>
 
