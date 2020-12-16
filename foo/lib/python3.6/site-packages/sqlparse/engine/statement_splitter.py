@@ -1,5 +1,6 @@
+# -*- coding: utf-8 -*-
 #
-# Copyright (C) 2009-2020 the sqlparse authors and contributors
+# Copyright (C) 2009-2018 the sqlparse authors and contributors
 # <see AUTHORS file>
 #
 # This module is part of python-sqlparse and is released under
@@ -8,7 +9,7 @@
 from sqlparse import sql, tokens as T
 
 
-class StatementSplitter:
+class StatementSplitter(object):
     """Filter that split stream at individual statements"""
 
     def __init__(self):
@@ -66,7 +67,7 @@ class StatementSplitter:
             self._begin_depth = max(0, self._begin_depth - 1)
             return -1
 
-        if (unified in ('IF', 'FOR', 'WHILE', 'CASE')
+        if (unified in ('IF', 'FOR', 'WHILE')
                 and self._is_create and self._begin_depth > 0):
             return 1
 
@@ -103,5 +104,5 @@ class StatementSplitter:
                 self.consume_ws = True
 
         # Yield pending statement (if any)
-        if self.tokens and not all(t.is_whitespace for t in self.tokens):
+        if self.tokens:
             yield sql.Statement(self.tokens)
