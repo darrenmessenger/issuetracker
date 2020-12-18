@@ -9,7 +9,7 @@ from .forms import TicketsForm
 def get_tickets(request):
     """
     Create a view that will return a list of tickets that were published and 
-    render them to 'tickets.html' template
+    render them to 'issuetrackertickets.html' template
     """
     tickets = Ticket.objects.filter(published_date__lte=timezone.now
     ())
@@ -18,8 +18,9 @@ def get_tickets(request):
 def ticket_detail(request,pk):
     """
     Create a view that will return a single ticket object based on the ticket id 
-    and render it to the 'show_tickets.html' template
+    and render it to the 'ticketdetail.html' template
     """
+    print("ticket detail")
     ticket = get_object_or_404(Ticket,pk=pk) 
     ticket.views +=1
     ticket.save()
@@ -39,3 +40,25 @@ def create_or_edit_ticket(request, pk=None):
     else:
         form = TicketsForm(instance=ticket)
     return render(request, "issuetrackerticketform.html", {'form':form})
+    
+def ticket_vote(request,pk):
+    """
+    Create a view that will increase the upvotes for the current ticket
+    and render it to the 'ticketdetail.html' template
+    """
+    ticket = get_object_or_404(Ticket,pk=pk) 
+    ticket.upvotes +=1
+    ticket.save()
+    return render(request, "ticketdetail.html", {'ticket':ticket})
+    
+def ticket_vote_list(request,pk):
+    """
+    Create a view that will increase the upvotes for the current ticket in the list
+    and render it to the 'ticketdetail.html' template
+    """
+    ticket = get_object_or_404(Ticket,pk=pk) 
+    ticket.upvotes +=1
+    ticket.save()
+    tickets = Ticket.objects.filter(published_date__lte=timezone.now
+    ())
+    return render(request, "issuetrackertickets.html", {'tickets':tickets})
