@@ -22,7 +22,6 @@ def checkout(request):
             print("Payment form is valid...")
             try:
                 print("Just about to charge the customer...")
-                print("payment_form...",payment_form)
                 customer = stripe.Charge.create(
                     amount=500,
                     currency="EUR",
@@ -31,7 +30,7 @@ def checkout(request):
                 )
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
-            
+
             if customer.paid:
                 print("Customer has paid...")
                 messages.error(request, "You have successfully paid")
