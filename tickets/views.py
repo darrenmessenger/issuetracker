@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Ticket
@@ -26,6 +26,7 @@ def ticket_detail(request,pk):
     ticket.save()
     return render(request, "ticketdetail.html", {'ticket':ticket})
 
+@login_required
 def create_or_edit_ticket(request, pk=None):
     """
     Create a view that allows us to create or edit a ticket depending if 
@@ -36,6 +37,7 @@ def create_or_edit_ticket(request, pk=None):
         form = TicketsForm(request.POST, request.FILES, instance=ticket)
         if form.is_valid():
             ticket = form.save()
+            ticket.author = request.user.username
             return redirect(ticket_detail, ticket.pk)
     else:
         form = TicketsForm(instance=ticket)
