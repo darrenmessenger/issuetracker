@@ -9,9 +9,14 @@ class Ticket(models.Model):
     """
     Add a ticket
     """
+    TYPE_CHOICES = (
+        ('BUG', 'Bug'),
+        ('NEW FEATURE', 'New feature')
+    )
     title = models.CharField(max_length=225,blank=False)
     author = models.CharField(max_length=150, default='')
     content = models.TextField()
+    ticket_type = models.CharField(choices=TYPE_CHOICES, default='BUG', max_length=11)
     created_date = models.DateTimeField(auto_now_add=True)
     published_date = models.DateTimeField(blank=True, null=True, default=timezone.now)
     views = models.IntegerField(default=0)

@@ -3,9 +3,11 @@
     {% for ticket in tickets %}
         <div class="row">
             <div class="col-md-2 col-sm-3 text-center">
-                <a href="{% url 'ticket_detail' ticket.id %}">
-                    <img src="/media/img/bug.jpg" class="img-circle" height=90px>
-                </a>
+                {% if ticket.ticket_type == 'BUG' %}
+                    <a href="{% url 'ticket_detail' ticket.id %}"><img src="/media/img/bug.jpg" class="img-circle" height=90px></a>
+                {% else %}
+                    <a href="{% url 'ticket_detail' ticket.id %}"><img src="/media/img/new_feature.jpg" class="img-circle" height=90px></a>
+                {% endif %}
             </div>
             <div class="col-md-10 col-sm-9">
                 <h3>{{ ticket.title }}
@@ -15,6 +17,7 @@
                 <div class="row">
                     <div class="col-xs-9">
                         <p>{{ ticket.content|truncatewords:50 }}</p>
+                        <p><span class="boldtext">Ticket Type:</span> {{ ticket.ticket_type }} </p>
                         <p><a href="{% url 'ticket_detail' ticket.id %}"  class="btn btn-default">Read more</a></p>
                         <p><span class="boldtext">Published on:</span> {{ ticket.published_date }} </p>
                         <p><span class="boldtext">Views:</span> {{ticket.views}}</p>

@@ -2,9 +2,11 @@
 {% block content %}
     <div class="row">
         <div class="col-md-2 col-sm-3 text-center">
-            <a href="{% url 'ticket_detail' ticket.id %}">
-                <img src="/media/img/bug.jpg" class="img-circle" height=90px>
-            </a>
+             {% if ticket.ticket_type == 'BUG' %}
+                    <a href="{% url 'ticket_detail' ticket.id %}"><img src="/media/img/bug.jpg" class="img-circle" height=90px></a>
+                {% else %}
+                    <a href="{% url 'ticket_detail' ticket.id %}"><img src="/media/img/new_feature.jpg" class="img-circle" height=90px></a>
+                {% endif %}
         </div>
         <div class="col-sm-10 col-md-9">
             {% if ticket.image %}
@@ -16,6 +18,7 @@
             <div class="row">
                 <div class="col-xs-9">
                     <p>{{ ticket.content }}</p>
+                    <p><span class="boldtext">Ticket Type:</span> {{ ticket.ticket_type }} </p>
                     <p><span class="boldtext">Published on:</span> {{ ticket.published_date }} </p>
                     <p><span class="boldtext">Views:</span> {{ticket.views}}</p>
                     <p><span class="boldtext">Upvotes:</span> {{ ticket.upvotes }}</p>

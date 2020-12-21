@@ -29,9 +29,7 @@
 <body>
     <nav class="navbar navbar-default">
         <ul class="nav navbar-nav">
-            <!--<div class="nav-home">-->
             <li>   <a href="{% url 'index' %}"><i class="fas fa-hands fa-2x"></i></a></li>
-            <!--</div>-->
             {% if user.is_authenticated %}
                 <li><a href="{% url 'profile' %}">Profile</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
