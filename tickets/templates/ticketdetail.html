@@ -1,31 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="row">
-        <div class="col-md-2 col-sm-3 text-center">
-             {% if ticket.ticket_type == 'BUG' %}
-                    <a href="{% url 'ticket_detail' ticket.id %}"><img src="/media/img/bug.jpg" class="img-circle" height=90px></a>
-                {% else %}
-                    <a href="{% url 'ticket_detail' ticket.id %}"><img src="/media/img/new_feature.jpg" class="img-circle" height=90px></a>
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-md-2 col-sm-3 text-center">
+                 {% if ticket.ticket_type == 'BUG' %}
+                        <a href="{% url 'ticket_detail' ticket.id %}"><img src="/media/img/bug.jpg" class="img-circle" height=90px></a>
+                    {% else %}
+                        <a href="{% url 'ticket_detail' ticket.id %}"><img src="/media/img/new_feature.jpg" class="img-circle" height=90px></a>
+                    {% endif %}
+            </div>
+            <div class="col-sm-10 col-md-9">
+                {% if ticket.image %}
+                    <img class="img-blogpost" src="/media/{{ post.image }}">
                 {% endif %}
-        </div>
-        <div class="col-sm-10 col-md-9">
-            {% if ticket.image %}
-                <img class="img-blogpost" src="/media/{{ post.image }}">
-            {% endif %}
-            <h3>{{ ticket.title }}
-                <a href="{% url 'ticket_vote' pk=ticket.pk %}" {{ ticket.upvote }}<p><span title="Click here to vote for this issue" class="badge">{{ ticket.upvotes }} <span class="glyphicon glyphicon-arrow-up"></span></span></p></a>
-            </h3>
-            <div class="row">
-                <div class="col-xs-9">
-                    <p>{{ ticket.content }}</p>
-                    <p><span class="boldtext">Ticket Type:</span> {{ ticket.ticket_type }} </p>
-                    <p><span class="boldtext">Published on:</span> {{ ticket.published_date }} </p>
-                    <p><span class="boldtext">Views:</span> {{ticket.views}}</p>
-                    <p><span class="boldtext">Upvotes:</span> {{ ticket.upvotes }}</p>
-                    <p></p>
-                    <a href="{% url 'get_tickets' %}" class="btn btn-default">Back to tickets</a>
-                    <a href="{% url 'edit_ticket' ticket.id %}" class="btn btn-default">Edit ticket</a>
-                    <hr>
+                <h3>{{ ticket.title }}
+                    <a href="{% url 'ticket_vote' pk=ticket.pk %}" {{ ticket.upvote }}<p><span title="Click here to vote for this issue" class="badge">{{ ticket.upvotes }} <span class="glyphicon glyphicon-arrow-up"></span></span></p></a>
+                </h3>
+                <div class="row">
+                    <div class="col-xs-9">
+                        <p>{{ ticket.content }}</p>
+                        <p><span class="boldtext">Ticket Type:</span> {{ ticket.ticket_type }} </p>
+                        <p><span class="boldtext">Published on:</span> {{ ticket.published_date }} </p>
+                        <p><span class="boldtext">Views:</span> {{ticket.views}}</p>
+                        <p><span class="boldtext">Upvotes:</span> {{ ticket.upvotes }}</p>
+                        <p></p>
+                        <a href="{% url 'get_tickets' %}" class="btn btn-default">Back to tickets</a>
+                        <a href="{% url 'edit_ticket' ticket.id %}" class="btn btn-default">Edit ticket</a>
+                        <hr>
+                    </div>
                 </div>
             </div>
         </div>

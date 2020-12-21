@@ -18,26 +18,18 @@ body {
     background-color:#ADD8E6;
 }
 
-.all_issues{
-    float: right;  
-}
-
 .upvote{
   background-color: green;
 }
 
 /*******************************************FOOTER DETAILS*******************************************/
 /*Features of the main footer*/
-
-.footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  color: white;
+footer {
   text-align: center;
-  background-color: #F8F8F8	;
-}
+  color: white;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px; }
 
 /*Features of the social links*/
 .footer-social .social-links li a i {
@@ -48,7 +40,7 @@ body {
   font-size: 22px;
   line-height: 1.6rem;
   text-align: center;
-  color: black;
+  color: white;
   transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
   -webkit-transition: all 0.35s ease-in-out;
@@ -57,16 +49,14 @@ body {
 /*Features when hovering over social links*/
 .footer-social .social-links li a i:hover {
   background: red;
-  color: white; }
+  color: black; }
 
 li {
   display: inline; }
 
 /*Features of the copyright statement at bottom of page*/
 .copyright {
-  font-size: 0.8em; 
-  color: black;
-}
+  font-size: 0.8em; }
 
 /*Icon features*/
 .feature .glyphicon {

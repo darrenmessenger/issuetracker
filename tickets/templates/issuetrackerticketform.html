@@ -1,10 +1,14 @@
 {% extends "base.html" %}
 {% load bootstrap_tags %}
 {% block content %}
-    <h1>Add Issues</h1>
-    <form method="POST" class="col-md-12" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form | as_bootstrap }}
-        <input class=" btn btn-success" name="submitticket" type="submit" value="Create Issue">
-    </form>
+<div class="jumbotron">
+    <div class="row">
+        <h1>Add Issues</h1>
+        <form method="POST" class="col-md-12" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form | as_bootstrap }}
+            <input class=" btn btn-success" name="submitticket" type="submit" value="Create Issue">
+        </form>
+    </div>    
+</div>
 {% endblock %}
