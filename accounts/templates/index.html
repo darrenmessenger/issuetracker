@@ -3,16 +3,14 @@
 {% block content %}
 
 <div class="jumbotron">
-    <h1>Issue Tracker</h1>
-    <h3>Welcome {{ user.username }} to the Issue Tracker</h3>
-    <h4>Track your issues and bugs, and even request a new feature!</h4>
+    <h1 class="text-centre">Issue Tracker</h1>
+    <h3 class="text-centre">Welcome {{ user.username }} to the Issue Tracker</h3>
+    <h4 class="text-centre">Track your issues and bugs, and even request a new feature!</h4>
     <hr>
-    <h5>Welcome to the Issue Tracker, a community-driven site where you can report bugs or request features.</h5>
-    <h5><i class="fas fa-mug-hot fa-1x"> </i>  Buy us a coffee? If you would like to make a one time donation then please click the button!</h5>
-    <a href="{% url 'checkout' %}" class="btn btn-success btnmdg" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Donate</a>
-    <div>
-    <a href="{% url 'get_tickets' %}" class="btn btn-primary all_issues  btn-md">All Open Issues &rsaquo;</a>
-    </div>
+    <h5 class="text-centre">Welcome to the Issue Tracker, a community-driven site where you can report bugs or request features.</h5>
+    <h5 class="text-centre"><i class="fas fa-mug-hot fa-1x"> </i>  Buy us a coffee? If you would like to make a one time donation then please click the button!</h5>
+    <a href="{% url 'checkout' %}" class="btn btn-success btn-md" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Donate</a>
+    <a href="{% url 'get_tickets' %}" class="btn btn-primary all_issues btn-md">All Open Issues &rsaquo;</a>
 </div>
         
 {% endblock %}

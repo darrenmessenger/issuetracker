@@ -13,13 +13,17 @@ body {
   /* Margin bottom by footer height */
 }
 
+.text-centre{
+  text-align: center;
+}
+
 .notepad-image {
     padding-top: 30px;
     background-color:#ADD8E6;
 }
 
 .all_issues{
-    float: right;  
+    float: right; 
 }
 
 .upvote{
