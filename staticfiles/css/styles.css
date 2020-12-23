@@ -1,0 +1,99 @@
+form {
+    width: 90%;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  line-height: 20px;
+  color: #696969;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  background-color: #DCDCDC	;
+  height: 1px;
+}
+
+.text-centre{
+  text-align: center;
+}
+
+.all_issues{
+    float: right; 
+}
+
+.image-to-zoom {
+    width: 200px;
+    cursor: pointer;
+}
+
+.upvote{
+  background-color: blue;
+}
+
+.img-ticket-detail{
+    height: 300px;
+    width: auto;
+}
+
+/*******************************************FOOTER DETAILS*******************************************/
+/*Features of the main footer*/
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  background-color: #F8F8F8	;
+}
+
+/*Features of the social links*/
+.footer-social .social-links li a i {
+  width: 40px;
+  height: 40px;
+  padding: 12px 0;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1.6rem;
+  text-align: center;
+  color: black;
+  transition: all 0.35s ease-in-out;
+  -moz-transition: all 0.35s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+  -o-transition: all 0.35s ease-in-out; }
+
+/*Features when hovering over social links*/
+.footer-social .social-links li a i:hover {
+  background: red;
+  color: white; }
+
+li {
+  display: inline; }
+
+/*Features of the copyright statement at bottom of page*/
+.copyright {
+  font-size: 0.8em; 
+  color: black;
+}
+
+/*Icon features*/
+.feature .glyphicon {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 45px;
+  line-height: 45px; }
+
+@media screen and (min-width: 768px) {
+    #masthead h1 {
+        font-size: 80px;
+    }
+}
