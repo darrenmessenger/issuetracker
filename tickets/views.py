@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Ticket
-from .forms import TicketsForm
+from .forms import TicketsForm, TicketCommentForm
 
 def get_tickets(request):
     """
@@ -24,7 +24,23 @@ def ticket_detail(request,pk):
     ticket = get_object_or_404(Ticket,pk=pk) 
     ticket.views +=1
     ticket.save()
-    return render(request, "ticketdetail.html", {'ticket':ticket})
+    # Display comments
+    comments = ticket.ticketcomment_set.all().order_by('comment_date')
+    # Form for adding a comment
+    if request.method == 'POST' and request.POST.get('submit'):
+        comment_form = TicketCommentForm(request.POST, request.FILES)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user.username
+            comment.ticket = ticket
+            comment.save()
+            return redirect(ticket_detail, pk=ticket.pk)
+    # Form for upvoting tickets
+    elif request.method == 'POST' and not request.POST.get('submit'):
+        comment_form = TicketCommentForm()
+    else:
+        comment_form = TicketCommentForm()
+    return render(request, 'ticketdetail.html', {'ticket': ticket, 'comments': comments, 'comment_form': comment_form})
 
 @login_required
 def create_or_edit_ticket(request, pk=None):

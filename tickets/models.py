@@ -25,3 +25,13 @@ class Ticket(models.Model):
     
     def __unicode__(self):
         return self.title
+    
+class TicketComment(models.Model):
+    """Model that can create comments"""
+    author = models.CharField(max_length=150, default='')
+    comment = models.TextField(blank=False)
+    comment_date = models.DateTimeField(auto_now_add=True)
+    ticket = models.ForeignKey(Ticket, on_delete=models.SET_NULL, null=True)    
+        
+    def __str__(self):
+        return self.author
