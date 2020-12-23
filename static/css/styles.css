@@ -9,25 +9,38 @@ html {
 
 body {
   margin-bottom: 60px;
-  background-color: lightblue;
-  /* Margin bottom by footer height */
+  line-height: 20px;
+  color: #696969;
+}
+
+hr {
+  border: 0;
+  clear:both;
+  display:block;
+  background-color: #DCDCDC	;
+  height: 1px;
 }
 
 .text-centre{
   text-align: center;
 }
 
-.notepad-image {
-    padding-top: 30px;
-    background-color:#ADD8E6;
-}
-
 .all_issues{
     float: right; 
 }
 
+.image-to-zoom {
+    width: 200px;
+    cursor: pointer;
+}
+
 .upvote{
-  background-color: green;
+  background-color: blue;
+}
+
+.img-ticket-detail{
+    height: 300px;
+    width: auto;
 }
 
 /*******************************************FOOTER DETAILS*******************************************/

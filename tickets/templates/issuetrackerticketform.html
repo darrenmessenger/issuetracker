@@ -3,7 +3,8 @@
 {% block content %}
 <div class="jumbotron">
     <div class="row">
-        <h1>Add Issues</h1>
+        <h2><i class="fa fa-plus"></i> Add Issues</h2>
+        <hr>
         <form method="POST" class="col-md-12" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form | as_bootstrap }}

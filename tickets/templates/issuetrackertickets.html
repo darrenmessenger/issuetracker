@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
-    {% for ticket in tickets %}
-        <div class="jumbotron">
+    <div class="jumbotron">
+        <h2> <i class="fa fa-list"></i> Outstanding Issues </h2>
+        <hr>
+        {% for ticket in tickets %}
             <div class="row">
                 <div class="col-md-2 col-sm-3 text-center">
                     {% if ticket.ticket_type == 'BUG' %}
@@ -12,9 +14,8 @@
                 </div>
                 <div class="col-md-10 col-sm-9">
                     <h3>{{ ticket.title }}
-                        <a href="{% url 'ticket_vote_list' pk=ticket.pk %}" {{ ticket.upvote }}<p><span title="Click here to vote for this issue" class="badge">{{ ticket.upvotes }} <span class="glyphicon glyphicon-arrow-up upvote"></span></span></p></a>
+                        <a href="{% url 'ticket_vote_list' pk=ticket.pk %}" {{ ticket.upvote }}<p><span title="Click here to vote for this issue" class="badge upvote">{{ ticket.upvotes }} <span class="glyphicon glyphicon-arrow-up upvote"></span></span></p></a>
                     </h3>
-                    <h2>{{ ticket.author }}</h2>
                     <div class="row">
                         <div class="col-xs-9">
                             <p>{{ ticket.content|truncatewords:50 }}</p>
@@ -28,6 +29,7 @@
                 </div>
                 <hr>
             </div>
-        </div>
-    {% endfor %}
+            <hr>
+        {% endfor %}
+    </div>
 {% endblock %}
