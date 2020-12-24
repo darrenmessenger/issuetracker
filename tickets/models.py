@@ -13,6 +13,14 @@ class Ticket(models.Model):
         ('BUG', 'Bug'),
         ('NEW FEATURE', 'New feature')
     )
+    STATUS_CHOICES = (
+        ('TO_DO', 'To do'),
+        ('UNDER_REVIEW', 'Under Review'),
+        ('DECLINED', 'Declined'),
+        ('PLANNED', 'Planned'),
+        ('IN_PROGRESS', 'In Progress'),
+        ('COMPLETED', 'Completed')
+    )
     title = models.CharField(max_length=225,blank=False)
     author = models.CharField(max_length=150, default='')
     content = models.TextField()
@@ -22,6 +30,7 @@ class Ticket(models.Model):
     views = models.IntegerField(default=0)
     upvotes = models.IntegerField(default=0)
     image = models.ImageField(upload_to="img", blank=True, null=True)
+    status = models.CharField(choices=STATUS_CHOICES, default='TO_DO', max_length=12)
     
     def __unicode__(self):
         return self.title

@@ -11,8 +11,22 @@
                     {% else %}
                         <a href="{% url 'ticket_detail' ticket.id %}"><img src="/media/img/new_feature.jpg" class="img-circle" height=90px></a>
                     {% endif %}
-                </div>
+                    </div>
                 <div class="col-md-10 col-sm-9">
+                    {% if ticket.status == 'UNDER_REVIEW' %}
+                        <h4><span class="label label-default">Status: {{ ticket.status }}</span></h4>
+                    {% elif ticket.status == 'DECLINED' %}
+                        <h4><span class="label label-danger">Status: {{ ticket.status }}</span></h4>
+                    {% elif ticket.status == 'PLANNED' %}
+                        <h4><span class="label label-primary">Status: {{ ticket.status }}</span></h4>
+                    {% elif ticket.status == 'IN_PROGRESS' %}
+                        <h4><span class="label label-info">Status: {{ ticket.status }}</span></h4>
+                    {% elif ticket.status == 'COMPLETED' %}
+                        <h4><span class="label label-success">Status: {{ ticket.status }}</span></h4>
+                    {% else %}
+                        <h4><span class="label label-warning">Status: {{ ticket.status }}</span></h4>
+                    {% endif %}
+                    <h1 class="h4"><span class="issue-field status status-{{ status_choice|lower }}">{{ status }}</span>{{ title }}</h1>
                     <h3>{{ ticket.title }}
                         <a href="{% url 'ticket_vote_list' pk=ticket.pk %}" {{ ticket.upvote }}<p><span title="Click here to vote for this issue" class="badge upvote">{{ ticket.upvotes }} <span class="glyphicon glyphicon-arrow-up upvote"></span></span></p></a>
                     </h3>
@@ -20,10 +34,10 @@
                         <div class="col-xs-9">
                             <p>{{ ticket.content|truncatewords:50 }}</p>
                             <p><span class="boldtext">Ticket Type:</span> {{ ticket.ticket_type }} </p>
-                            <p><a href="{% url 'ticket_detail' ticket.id %}"  class="btn btn-default">Read more</a></p>
                             <p><span class="boldtext">Published on:</span> {{ ticket.published_date }} </p>
                             <p><span class="boldtext">Views:</span> {{ticket.views}}</p>
                             <p><span class="boldtext">Upvotes:</span> {{ ticket.upvotes }}</p>
+                            <p><a href="{% url 'ticket_detail' ticket.id %}"  class="btn btn-default">Read more</a></p>
                         </div>
                     </div>
                 </div>

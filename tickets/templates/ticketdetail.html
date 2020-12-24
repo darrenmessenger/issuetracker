@@ -16,6 +16,19 @@
                     {% endif %}
             </div>
             <div class="col-sm-10 col-md-9">
+                {% if ticket.status == 'UNDER_REVIEW' %}
+                    <h4><span class="label label-default">Status: {{ ticket.status }}</span></h4>
+                {% elif ticket.status == 'DECLINED' %}
+                    <h4><span class="label label-danger">Status: {{ ticket.status }}</span></h4>
+                {% elif ticket.status == 'PLANNED' %}
+                    <h4><span class="label label-primary">Status: {{ ticket.status }}</span></h4>
+                {% elif ticket.status == 'IN_PROGRESS' %}
+                    <h4><span class="label label-info">Status: {{ ticket.status }}</span></h4>
+                {% elif ticket.status == 'COMPLETED' %}
+                    <h4><span class="label label-success">Status: {{ ticket.status }}</span></h4>
+                {% else %}
+                    <h4><span class="label label-warning">Status: {{ ticket.status }}</span></h4>
+                {% endif %}
                 <h3>{{ ticket.title }}
                     <a href="{% url 'ticket_vote' pk=ticket.pk %}" {{ ticket.upvote }}<p><span title="Click here to vote for this issue" class="badge upvote">{{ ticket.upvotes }} <span class="glyphicon glyphicon-arrow-up"></span></span></p></a>
                 </h3>
