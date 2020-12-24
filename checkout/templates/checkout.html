@@ -6,21 +6,25 @@
 
 {% block content %}
 
-<form action="{% url 'checkout' %}" method="post" id="payment-form" class="col-md-6 col-md-offset-3">
-    <legend>Payment Details</legend>
-
-    <div id="credit-card-errors" style="display: none;">
-        <div class="alert-message block-message error" id="stripe-error-message"></div>
+<div class="jumbotron">
+    <div class="row">
+        <form action="{% url 'checkout' %}" method="post" id="payment-form">
+            <legend>Payment Details</legend>
+        
+            <div id="credit-card-errors" style="display: none;">
+                <div class="alert-message block-message error" id="stripe-error-message"></div>
+            </div>
+        
+            <div class="form-group col-md-6">
+                {{ payment_form|as_bootstrap }}
+            </div>
+        
+            {% csrf_token %}
+            <div class="form-group col-md-12">
+                <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment of 5 Euros">
+            </div>
+        </form>
     </div>
-
-    <div class="form-group col-md-6">
-        {{ payment_form|as_bootstrap }}
-    </div>
-
-    {% csrf_token %}
-    <div class="form-group col-md-12">
-        <input class=" btn btn-primary" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment of 5 Euros">
-    </div>
-</form>
+</div>
 
 {% endblock %}

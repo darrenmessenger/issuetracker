@@ -31,7 +31,7 @@ class Ticket(models.Model):
     upvotes = models.IntegerField(default=0)
     image = models.ImageField(upload_to="img", blank=True, null=True)
     status = models.CharField(choices=STATUS_CHOICES, default='TO_DO', max_length=12)
-    
+
     def __unicode__(self):
         return self.title
     
