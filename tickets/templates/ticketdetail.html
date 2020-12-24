@@ -34,16 +34,16 @@
                 </h3>
                 <div class="row">
                     <div class="col-xs-9">
-                        <p>{{ ticket.content }}</p>
-                        <p><span class="boldtext">Ticket Type:</span> {{ ticket.ticket_type }} </p>
+                        <h5>{{ ticket.content }}</h5>
+                        <h5><span class="boldtext">Ticket Type:</span> {{ ticket.ticket_type }} </h5>
                         {% if ticket.image %}
                             <div class="issue-img">
                                 <img src="{{ MEDIA_URL }}{{ ticket.image }}" class="image-to-zoom">
                             </div>
                         {% endif %}
-                        <p><span class="boldtext">Published on:</span> {{ ticket.published_date }} </p>
-                        <p><span class="boldtext">Views:</span> {{ticket.views}}</p>
-                        <p><span class="boldtext">Upvotes:</span> {{ ticket.upvotes }}</p>
+                        <h6><span class="boldtext">Published on:</span> {{ ticket.published_date }} </h6>
+                        <h6><span class="boldtext">Views:</span> {{ticket.views}}</h6>
+                        <h6><span class="boldtext">Upvotes:</span> {{ ticket.upvotes }}</h6>
                         <p></p>
                         <a href="{% url 'get_tickets' %}" class="btn btn-default">Back to tickets</a>
                         <a href="{% url 'edit_ticket' ticket.id %}" class="btn btn-default">Edit ticket</a>
