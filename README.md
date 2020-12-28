@@ -43,4 +43,63 @@ The final database consists of 2 tables, Ticket and TicketComment. Details are s
 - comment_date(The date of the comment)
 - ticket (The ticket that the comment is linked to)
 
+### User Stories
+
+- Home Page:
+- There should be a Navbar with a Login and Register link.
+- I should see a welcome message and a link to login or register to the the site. 
+- If I press on the Donate button I will be taken to the payments page
+- If I press on the All Open Issues button I will be taken to the Outstanding Issues Page
+- Navbar:
+- If I am not logged in I should see a 'Log In' and a 'Register' menu option.
+- If I click the Login link it should open the Login page. 
+- If I click the Register link it should open the Register page. 
+- If I click on the IssueTracker title in the navbar it should always take me back to the home page.
+- If I click on the 'LogOut' menu option it should log me out and take me to the home page.
+- Login Page:
+- When the Login page is loaded it should show a blank Username and Password.
+- If I enter my Username and Password correctly it should navigate to the home page with a new welcome message that includes my username.
+- If I enter an incorrect username or password I should see an error message stating that the username or password is incorrect.
+- Registration Page:
+- When the Registration page is loaded it should show a blank eMail, Username and Password.
+- I can register a new account if I fill in all of the fields. 
+- If the format of the fields are incorrect then I will receive an error message.
+- If the username already exists then I will receive an error message.
+- Outstanding Issues Page
+- All of the issues should be displayed.
+- If the issue is a bug it should have an image of a bug next to the ticket.
+- If the issue is a new feature it should have an image showing 'new'.
+- I should be able to see the basic details of the ticket. 
+- I should be able to click on the upvote button and vote for the ticket. 
+- If I click on the upvote button it will vote for the issue and take me to the ticket details. 
+- I should be able to see the status of each of the tickets. 
+- I should be able to click on a button so that I can read more about the issue. 
+- If I click on the Read More button I will be taken to the Issue Detail page.
+- Issue Detail:
+- I should be able to see all of the details of the issue. 
+- If the issue is a bug it should have an image of a bug.
+- If the issue is a new feature it should have an image showing 'new'.
+- I should be able to click on the upvote button and vote for the ticket. 
+- If I click on the upvote button it will vote for the issue and refresh the page. 
+- I should be able to see if an image has been added to the ticket. 
+- I should see a compressed version of the image.
+- If I click on the image it should 'zoom' in and show the image in more detail. 
+- I should be able to click on a button to take me back to the Outstanding Issues Page.
+- I should be able to click on a button to allow me to edit the ticket. 
+- I should be able to see all of the comments that have been added to the ticket. 
+- If I am signed in I should be able to add a comment to the ticket. 
+- If I am not signed in I should see a message stating that I need to sign in to add a comment. 
+- New Issue Page:
+- When the page is loaded I should see the descriptions of each section that can be entered. 
+- I should be able to enter the details of the issue.
+- I should be able to add an image of the issue.
+- If I leave a section blank then I should see an error message when I try to create the issue.
+- I should be able to click on the ticket type and see a drop down list which is selectable.
+- I should be able to click on a button to create the issue. 
+- If I click on the button to create the issue I should be taken to the outstanding issues page.
+
+
+
+
+
 
