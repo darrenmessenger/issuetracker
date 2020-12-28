@@ -18,5 +18,5 @@ The main technologies that are to be used for this project are HTML, CSS, JavaSc
 I have decided to create a project based on the Issue Tracker idea. It will Report and track work on bugs and other issues with a product they like.
 
 The wireframes for this website can be found in the repository within Github in the directory "media/img/Wireframes", 
-or you can click [here](https://github.com/darrenmessenger/issuetracker/tree/master/media/img/Wireframes).
+or you can click [here](https://github.com/darrenmessenger/issuetracker/tree/main/media/img/Wireframes).
 
