@@ -11,7 +11,7 @@ class Ticket(models.Model):
     """
     TYPE_CHOICES = (
         ('BUG', 'Bug'),
-        ('NEW FEATURE', 'New feature')
+        ('NEW_FEATURE', 'New feature')
     )
     STATUS_CHOICES = (
         ('TO_DO', 'To do'),
