@@ -320,12 +320,12 @@ git add .
 git commit -m "Initial commit after clone"
 git push -u origin master
 git remote -v //to check git has been setup
-
-cd to the root directory then:
+```
+cd to the root directory then activate the virtual environment:
 ```
 python3 -m pip install --user virtualenv //install virtual environment
 python3 -m venv foo //create a virtual environment
-source foo/bin/activate // activate the virtual environment
+source foo/bin/activate 
 ```
 You will need to install the dependencies found in the requirements.txt file:
 ```
