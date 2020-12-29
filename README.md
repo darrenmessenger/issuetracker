@@ -167,7 +167,7 @@ I went through each of the User Stories to make sure that they worked as expecte
 | There should be a Navbar with a Login and Register link.| **PASSED** |
 | If the format of the fields are incorrect then I will receive an error message.| **PASSED** |
 | If the username already exists then I will receive an error message.| **PASSED** |
-| Outstanding Issues Page
+| Outstanding Issues Page | **PASSED** |
 | All of the issues should be displayed.| **PASSED** |
 | If the issue is a bug it should have an image of a bug next to the ticket.| **PASSED** |
 | If the issue is a new feature it should have an image showing 'new'.| **PASSED** |
@@ -177,7 +177,7 @@ I went through each of the User Stories to make sure that they worked as expecte
 | I should be able to see the status of each of the tickets. | **PASSED** |
 | I should be able to click on a button so that I can read more about the issue. | **PASSED** |
 | If I click on the Read More button I will be taken to the Issue Detail page.| **PASSED** |
-| Issue Detail:
+| Issue Detail:| **PASSED** |
 | I should be able to see all of the details of the issue. | **PASSED** |
 | If the issue is a bug it should have an image of a bug.| **PASSED** |
 | If the issue is a new feature it should have an image showing 'new'.| **PASSED** |
@@ -191,7 +191,7 @@ I went through each of the User Stories to make sure that they worked as expecte
 | I should be able to see all of the comments that have been added to the ticket. | **PASSED** |
 | If I am signed in I should be able to add a comment to the ticket. | **PASSED** |
 | If I am not signed in I should see a message stating that I need to sign in to add a comment. | **PASSED** |
-| New Issue Page:
+| New Issue Page:| **PASSED** |
 | When the page is loaded I should see the descriptions of each section that can be entered. | **PASSED** |
 | I should be able to enter the details of the issue.| **PASSED** |
 | I should be able to add an image of the issue.| **PASSED** |
@@ -199,19 +199,22 @@ I went through each of the User Stories to make sure that they worked as expecte
 | I should be able to click on the ticket type and see a drop down list which is selectable.| **PASSED** |
 | I should be able to click on a button to create the issue. | **PASSED** |
 | If I click on the button to create the issue I should be taken to the outstanding issues page.| **PASSED** |
-| Payments Page:
+| Payments Page:| **PASSED** |
 | If I click on the donate button I will be taken to the Payments Page.| **PASSED** |
 | If I enter my payment details correctly and press the submit button I will be charged the desired amount.| **PASSED** |
 | If I enter any incoorect values I will see an error message.| **PASSED** |
 | After the submit button has been pressed and the payment is successful I will see the home page with a confirmation message.| **PASSED** |
-| Profile page:
+| Profile page:| **PASSED** |
 | If I click on the person icon in the nav bar I will be taken to the profile page.| **PASSED** |
 | I will see basic details of my profile along with a donate button.| **PASSED** |
 | If I click on the donate button I will be taken to the Payments Page.| **PASSED** |
-| Admin Page:
+| Admin Page:| **PASSED** |
 | If I need to delete an issue then I can do so from the Admin page.| **PASSED** |
 | If I need to change the status of an issue I can change it. | **PASSED** |
 
+### Travis CI Testing 
+
+This project used Travis CI to support the development process by automatically building and testing coded changes that have been submitted to Github. You can see the result of the testing at the top of the ReadMe. 
 
 ### Jasmine Testing 
 
@@ -237,7 +240,7 @@ heroku apps:create python-cookbook-project-dm
 
 Copy the heroku git URL from the setting page of heroku and enter the following command on Cloud9:
 ```
-git remote add heroku https://git.heroku.com/thorin-and-company-dm.git
+git remote add heroku https://git.heroku.com/issuetracker.git
 ```
 
 Then run the following command to see the remote git attached to your project:
@@ -285,24 +288,24 @@ git commit -m "Add Procfile"
 ```
 git push -u heroku master
 ```
-In heroku app, inside the settings, clicked Config Vars, and set IP, PORT and environment variable MONGO_URI.
+In heroku app, inside the settings, clicked Config Vars, and set DATABASE_URL, SECRET_KEY, STRIPE_SECRET and STRIPE_PUBLISHABLE.
 Clicked 'Open app' and the website was up and running.
 
 
 
-Anyone can download the project or clone it from GitHub [here](https://github.com/darrenmessenger/cookbook) 
+Anyone can download the project or clone it from GitHub [here](https://github.com/darrenmessenger/issuetracker) 
 
-The live website can be found [here](http://python-cookbook-project-dm.herokuapp.com/).
+The live website can be found [here](https://dm-issuetracker.herokuapp.com/).
 
 ### Cloning
 
-If you wish to clone this project then you can click on the green 'Clone or download' button on [this](https://github.com/darrenmessenger/cookbook) page, and then download the .zip file. 
+If you wish to clone this project then you can click on the green 'Clone or download' button on [this](https://dm-issuetracker.herokuapp.com/) page, and then download the .zip file. 
 
 Unzip the file into the directory you prefer on your computer or cloud drive and then import it into your favourite IDE. 
 
 Clone the repository
 ```
-git clone https://github.com/darrenmessenger/cookbook.git
+git clone https://github.com/darrenmessenger/issuetracker.git
 ```
 
 Move into the folder
@@ -310,55 +313,37 @@ Move into the folder
 cd directoty-name
 ```
 
+You will need to initialize git:
+```
+git init
+git add .
+git commit -m "Initial commit after clone"
+git push -u origin master
+git remote -v //to check git has been setup
+
+cd to the root directory then:
+```
+python3 -m pip install --user virtualenv //install virtual environment
+python3 -m venv foo //create a virtual environment
+source foo/bin/activate // activate the virtual environment
+```
 You will need to install the dependencies found in the requirements.txt file:
 ```
-pip3 freeze --local > requirements.txt
+pip install django==1.11
+pip install pillow==5.3.0
+pip install django-forms-bootstrap
+sudo apt install libpq-dev python3-dev
+pip install dj-database-url psycopg2
+pip install stripe
+pip install whitenoise
+python3 manage.py createsuperuser
+pip freeze > requirements.txt
 ```
  
-Then run:
-```
-sudo pip3 install flask-pymongo 
-```
-```
-sudo pip3 install dnspython
-```
-
 To run the project locally use:
 ```
 python3 app.py runserver
 ```
-
-### Keeping MongoDB Password Private
-
-Go to the MongoDB Atlas DB and click on ‘Connect’. Select ‘Connect Your Application’ and then click on the ‘Short SRV Connection String’ and copy the text. 
-
-Go to cloud9 and enter in a command terminal:
-```
-Cd ..
-nano .bashrc
-```
-
-Near the top of the opened file enter:
-```
-export MONGO_URI="mongodb+srv://root:r00tUser@cluster0-nogor.mongodb.net/cookbook?retryWrites=true&w=majority"
-```    
-Where the address in quotes is what you have just copied. Remember to change the database name and the password. Press CTRL X to exit, Y to save then Enter for the filename.
-
-Close the Terminal and reopen it so that the changes take effect.
-
-Type the following in a terminal to show the connection string:
-```
-echo $MONGO_URI
-```
-Edit app.py with the following so that you can connect to MongoDB:
-```
-app = Flask(__name__)
-app.config["MONGO_DBNAME"] = 'cookbook'
-app.config["MONGO_URI"] = os.getenv("MONGO_URI")
-
-mongo = PyMongo(app)
-```
-
 ## Credits
 
 I would like to thank all of the Code Institute students that helped throughout this project on Slack. 
