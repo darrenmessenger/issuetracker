@@ -66,9 +66,11 @@ def ticket_vote(request,pk):
     """
     print("ticket_vote")
     ticket = get_object_or_404(Ticket,pk=pk) 
+    comments = ticket.ticketcomment_set.all().order_by('comment_date')
+    comment_form = TicketCommentForm(request.POST, request.FILES)
     ticket.upvotes +=1
     ticket.save()
-    return render(request, "ticketdetail.html", {'ticket':ticket})
+    return render(request, "ticketdetail.html", {'ticket':ticket , 'comments': comments, 'comment_form': comment_form})
     
 def ticket_vote_list(request,pk):
     """
