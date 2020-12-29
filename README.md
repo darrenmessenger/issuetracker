@@ -135,6 +135,7 @@ When the links are clicked then a new page is opened up showing the social media
 
 The following technologies have all been used during the coding of this project:
 
+- [Django](https://www.djangoproject.com/) and [Python](https://www.python.org/download/releases/3.0/). The project is built with Django and Python. 
 - [Bootstrap](https://getbootstrap.com/) The project is built with the use of bootstrap as it is responsive and enables fast development. 
 - [JQuery](https://jquery.com/). This was used for the gaming functionality. 
 - [FontAwesome](https://fontawesome.com/) I used FontAwesome for the icons shown in the footer for the social links. 
@@ -235,7 +236,7 @@ Type ‘heroku login -i’ to login to your heroku account. Type ‘heroku apps�
 
 To create an app on Heroku you can either do it directly on Heroku or run the following command:
 ```
-heroku apps:create python-cookbook-project-dm
+heroku apps:create dm-issuetracker
 ```
 
 Copy the heroku git URL from the setting page of heroku and enter the following command on Cloud9:
