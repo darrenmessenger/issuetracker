@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [os.environ.get('AWSC9_HOST'), '3231d88fef004534aa79ab40a77c1898.vfs.cloud9.us-east-2.amazonaws.com', 'dm-issuetracker.herokuapp.com']
 
