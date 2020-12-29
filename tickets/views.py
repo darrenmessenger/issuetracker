@@ -64,6 +64,7 @@ def ticket_vote(request,pk):
     Create a view that will increase the upvotes for the current ticket
     and render it to the 'ticketdetail.html' template
     """
+    print("ticket_vote")
     ticket = get_object_or_404(Ticket,pk=pk) 
     ticket.upvotes +=1
     ticket.save()
@@ -74,6 +75,7 @@ def ticket_vote_list(request,pk):
     Create a view that will increase the upvotes for the current ticket in the list
     and render it to the 'ticketdetail.html' template
     """
+    print("ticket_vote_list")
     ticket = get_object_or_404(Ticket,pk=pk) 
     ticket.upvotes +=1
     ticket.save()
